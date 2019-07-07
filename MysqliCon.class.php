@@ -31,7 +31,7 @@ class MysqliCon{
 
   public function query($con, $query){
     if($con['status'] == true){
-      $q = mysqli_query($con['con'], $query);
+      $q = mysqli_query($con['con'], mysql_escape_string($query));
       if($q){
         $resu = array();
         $typeQuery = strtoupper(explode(" ", $query)[0]);
